@@ -1,0 +1,43 @@
+# numbers 라는 리스트가 다음과 같다고 할때
+# numbers 안에 있는 두 개의 숫자를 중복가능하게 뽑아 더해서 만들 수 있는 숫자의 종류를
+# 리스트안에 저장하여 출력하시오
+# 힌트: set
+# numbers = [2,1,3,4,1]
+
+numbers = [2,1,3,4,1]
+answer=[]
+for i in range(0,len(numbers)):
+    for j in range(0,len(numbers)):
+            t = numbers[i] + numbers[j]
+            answer.append(t)
+             
+answer = list(set(answer))
+print(answer)
+
+
+# 트럼프카드는 조커를 제외하면 52개의 카드가 있는데
+# 그 종류는 <하트, 다이아몬드, 클로버, 스페이드> 각각의 모양에 대해 
+# <A, 1, 2, 3, ... , 10, J, Q, K> 를 조합한 것이다
+# 트럼프카드의 모든 종류(52가지)를 출력하시오
+# 힌트1: 숫자를 정수형이 아닌 문자열형으로 바꾸기
+# 힌트2: 리스트와 리스트의 합은 다음과 같음
+#       [1,2,3] + [4,5,6] --> [1,2,3,4,5,6]
+# 힌트3: 문자열고 문자열의 합은 다음과 같음
+#       'hi' + 'hello' --> 'hihello'
+
+num = []
+for x in range(2,11):
+    num.append(str(x))
+    
+    
+num = ['A'] + num + ['J','Q','K']
+shape = ['H','C','D','S']
+
+trump=[]
+
+for i in num:
+    for j in shape:
+        t = i+j   
+        trump.append(t)
+        
+print(trump)
