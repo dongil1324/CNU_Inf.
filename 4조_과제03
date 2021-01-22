@@ -1,0 +1,45 @@
+# 문제 1. 
+# data라는 이중 리스트가 다음과 같이 주어지고 각각의 알파벳들을 key값으로 숫자들을 value값으로
+# 하는 data_dic을 만드려고 한다. 이때 중복되는 key가 없으면 새로운 dic set을 추가하고
+# 중복되는 key가 있으면 해당 key에 대한 value에 자료를 추가해서 data_dic을 출력했을 때
+# 다음과 같은 결과를 가지도록 코드를 작성하시오.
+# data_dic = {}
+# data = [['a',1],['b',2],['c',3],['a',4]]
+
+# # 예상 결과: 
+# data_dic = {'a':[1,4],'b':[2],'c':[3]}
+
+
+data_dic = {}
+data = [['a',1],['b',2],['c',3],['a',4]]
+
+for i in data:
+    if i[0] not in data_dic.keys():
+        data_dic.setdefault(i[0],[i[1]])
+        
+    elif i[0] in data_dic.keys():
+        data_dic[i[0]].append(i[1])
+
+
+# 문제 2.
+# input 을 사용하여 임의의 성적을 입력받고 해당성적의 학점을 계산하는 함수를 작성하시오
+# (90점 이상 100점 이하 -> A, 80점 이상 90점 미만 -> B, 70점 이상 80점 미만 -> C, 나머지 -> F)
+
+# 힌트. input으로 입력받는 어떤것은 str(문자열)형 타입이다.
+
+score = int(input("점수를 입력하세요: "))
+
+def get_grade(x):
+    if 90 <= x <= 100:
+        grade = str(x) + ' --> A'
+        
+    if 80 <= x < 90:
+        grade = str(x) + ' --> B'
+    
+    if 70 <= x < 80:
+        grade = str(x) + ' --> C'
+    
+    else:
+        grade = str(x) + ' --> F'
+    
+    return grade
