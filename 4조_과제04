@@ -1,0 +1,42 @@
+# 주어진 student.txt 파일에는 학생 각각에 대한 정보가 주어져있다.(이름,전화번호,성별,키,성적)
+# 주어진 student.txt 파일을 읽어와서 각 학생에 대한 정보를 저장한 딕셔너리를 
+# 다음과 같은 형태로 작성하시오
+
+# {'AAA': ['AAA', '010-1111-1111', 'M', '170', '85'], 
+#  'BBB': ['BBB', '010-2222-2222', 'F', '160', '95'], 
+#  'CCC': ['CCC', '010-3333-3333', 'F', '165', '95'], 
+#  'DDD': ['DDD', '010-4444-4444', 'M', '175', '65'], 
+#  'EEE': ['EEE', '010-5555-5555', 'M', '180', '90']}
+
+# 힌트
+# stu_dic에 해당 학생의 이름이 없으면 setdefault 를 사용하여 새 딕셔너리를 만들고
+# 해당 학생의 이름이 있으면 정보를 추가하시오
+
+# student.txt 파일에 있는 학생의 정보는 탭(tab) 단위로 저장한 것임 '\t'
+
+
+# student.txt 파일
+
+# AAA    010-1111-1111    M    170    85
+# BBB    010-2222-2222    F    160    95
+# CCC    010-3333-3333    F    165    95
+# DDD    010-4444-4444    M    175    65
+# EEE    010-5555-5555    M    180    90
+
+
+stu_dic = {}
+
+with open('C:/Users/ibk14/Desktop/뻐꾸기/student.txt','r') as f:
+    lines = f.readlines()
+    
+for line in lines:
+    line = line.strip().split('\t')
+    name = line[0]
+    
+    for i in line:    
+        if name not in stu_dic:
+            stu_dic.setdefault(name,[i])
+        elif name in stu_dic:
+            stu_dic[name].append(i)
+
+print(stu_dic)
